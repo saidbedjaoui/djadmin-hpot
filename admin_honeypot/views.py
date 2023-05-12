@@ -11,7 +11,6 @@ from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.contrib.auth.views import redirect_to_login
 from django.shortcuts import redirect
 from django.urls import reverse
-from django.utils.translation import gettext as _
 from django.views import generic
 
 
@@ -40,7 +39,7 @@ class AdminHoneypot(generic.FormView):
             **AdminSite().each_context(self.request),
             'app_path': self.request.get_full_path(),
             REDIRECT_FIELD_NAME: reverse('admin_honeypot:index'),
-            'title': _('Log in'),
+            'title': 'Log in',
         })
         return context
 
